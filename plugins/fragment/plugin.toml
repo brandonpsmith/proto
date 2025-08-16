@@ -1,0 +1,25 @@
+# A TOML plugin for proto:
+# https://moonrepo.dev/docs/proto/plugins#toml-plugin
+
+name = "fragment"
+type = "cli"
+
+[resolve]
+versions = [ "2025.8.11" ]
+
+[platform.linux]
+download-file = "fragment-cli-v{version}-linux-{arch}.tar.gz"
+
+[platform.macos]
+download-file = "fragment-cli-v{version}-darwin-{arch}.tar.gz"
+
+[install]
+download-url = "https://prod-fragment-cli-bucket.s3.amazonaws.com/{download_file}"
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "x64"
+
+[install.exes.fragment]
+exe-path = "fragment/bin/fragment"
+primary = true

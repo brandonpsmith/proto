@@ -1,0 +1,14 @@
+atlas = "latest"
+biome = "latest"
+cocogitto = "latest"
+fragment = "latest"
+neonctl = "latest"
+temporal = "latest"
+
+[plugins]
+atlas = "file://plugins/atlas/plugin.toml"
+biome = "file://plugins/biome/plugin.toml"
+cocogitto = "file://plugins/cocogitto/plugin.toml"
+fragment = "file://plugins/fragment/plugin.toml"
+neonctl = "file://plugins/neonctl/plugin.toml"
+temporal = "file://plugins/temporal/plugin.toml"
