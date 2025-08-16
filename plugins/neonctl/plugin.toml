@@ -1,0 +1,25 @@
+# A TOML plugin for proto:
+# https://moonrepo.dev/docs/proto/plugins#toml-plugin
+
+name = "neonctl"
+type = "cli"
+
+[resolve]
+git-url = "https://github.com/neondatabase/neonctl"
+version-pattern = "^v((?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+))"
+
+[platform.linux]
+download-file = "neonctl-linux-{arch}"
+
+[platform.macos]
+download-file = "neonctl-macos-x64"
+
+[platform.windows]
+download-file = "neonctl-win-x64.exe"
+
+[install]
+download-url = "https://github.com/neondatabase/neonctl/releases/download/v{version}/{download_file}"
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "x64"

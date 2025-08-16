@@ -1,0 +1,36 @@
+# A TOML plugin for proto:
+# https://moonrepo.dev/docs/proto/plugins#toml-plugin
+
+name = "cocogitto"
+type = "cli"
+
+[resolve]
+git-url = "https://github.com/cocogitto/cocogitto"
+version-pattern = "^((?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+))"
+
+[platform.linux]
+download-file = "cocogitto-{version}-{arch}.tar.gz"
+archive-prefix = "{arch}"
+exe-path = "cog"
+
+[platform.macos]
+download-file = "cocogitto-{version}-x86_64-apple-darwin.tar.gz"
+archive-prefix = "x86_64-apple-darwin"
+exe-path = "cog"
+
+[platform.windows]
+download-file = "cocogitto-{version}-x86_64-pc-windows-msvc.tar.gz"
+archive-prefix = "x86_64-pc-windows-msvc"
+exe-path = "cog.exe"
+
+[install]
+download-url = "https://github.com/cocogitto/cocogitto/releases/download/{version}/{download_file}"
+
+[install.exes.cog]
+exe-path = "cog"
+primary = true
+
+[install.arch]
+aarch64 = "aarch64-unknown-linux-gnu"
+x86_64 = "x86_64-unknown-linux-musl"
+arm = "armv7-unknown-linux-musleabihf"
