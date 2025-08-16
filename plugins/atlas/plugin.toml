@@ -1,0 +1,25 @@
+# A TOML plugin for proto:
+# https://moonrepo.dev/docs/proto/plugins#toml-plugin
+
+name = "atlas"
+type = "cli"
+
+[resolve]
+git-url = "https://github.com/ariga/atlas"
+version-pattern = "^v((?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+))"
+
+[platform.linux]
+download-file = "atlas-linux-{arch}-v{version}"
+
+[platform.macos]
+download-file = "atlas-darwin-{arch}-v{version}"
+
+[platform.windows]
+download-file = "atlas-windows-{arch}-v{version}.exe"
+
+[install]
+download-url = "https://release.ariga.io/atlas/{download_file}"
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "amd64"
