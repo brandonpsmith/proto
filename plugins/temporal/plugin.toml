@@ -1,0 +1,25 @@
+# A TOML plugin for proto:
+# https://moonrepo.dev/docs/proto/plugins#toml-plugin
+
+name = "temporal"
+type = "cli"
+
+[resolve]
+git-url = "https://github.com/temporalio/cli"
+version-pattern = "^v((?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+))"
+
+[platform.linux]
+download-file = "temporal_cli_{version}_linux_{arch}.tar.gz"
+
+[platform.macos]
+download-file = "temporal_cli_{version}_darwin_{arch}.tar.gz"
+
+[platform.windows]
+download-file = "temporal_cli_{version}_windows_{arch}.tar.gz"
+
+[install]
+download-url = "https://github.com/temporalio/cli/releases/download/v{version}/{download_file}"
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "amd64"

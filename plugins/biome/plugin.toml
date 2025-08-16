@@ -1,0 +1,29 @@
+# A TOML plugin for proto:
+# https://moonrepo.dev/docs/proto/plugins#toml-plugin
+
+name = "biome"
+type = "cli"
+
+[resolve]
+git-url = "https://github.com/biomejs/biome"
+version-pattern = "^@biomejs/biome@((?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+))"
+
+[platform.linux]
+download-file = "biome-linux-{arch}{libc}"
+
+[platform.macos]
+download-file = "biome-darwin-{arch}"
+
+[platform.windows]
+download-file = "biome-win32-{arch}.exe"
+
+[install]
+download-url = "https://github.com/biomejs/biome/releases/download/%40biomejs%2Fbiome%40{version}/{download_file}"
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "x64"
+
+[install.libc]
+gnu = ""
+musl = "-musl"
